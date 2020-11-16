@@ -9,24 +9,16 @@ class NewsArticle(models.Model):
     title            = models.CharField(max_length=300)
     summary          = models.TextField()
     content          = models.TextField()
-
-    published_status = models.CharField(max_length=15, choices=options, defaulf='draft')
+    # published_status = models.BooleanField(default= False)
+    published_status = models.CharField(max_length=15, choices=options, default='draft')
     published_date   = models.DateTimeField(auto_now_add=True)
     author           = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name='author')
     category         = models.CharField(max_length=20)
-    bookmark         = models.ManyToManyField(to=NewsArticle, related_name='bookmark')
+    bookmark         = models.ManyToManyField(to=User, default=None, blank=True)
 
     def __str__(self):
         return self.title
 
-# class Bookmark(models.Model):
-#     articles = models.ManyToManyField(to=NewsArticle)
-
-    # def __str__(self):
-    #     return 'articles_title'
 
 # class Category(models.Model):
 #     article = models.OneToOneField(on_delete=)
-
-# class Author(models.Model):
-#     name = models.CharField()
