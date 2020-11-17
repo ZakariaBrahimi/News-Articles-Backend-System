@@ -9,7 +9,7 @@ from rest_framework import status
 
 class ArticlesList(APIView):
     """
-    List all articles, or create a new article.
+    List of all articles.
     """
     def get(self, request ):
         articles = NewsArticle.objects.all()
