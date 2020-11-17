@@ -4,6 +4,7 @@ from django.conf.urls import url
 from .views import ArticlesList
 app_name = 'news_articles'
 
+
 urlpatterns = [
     url('articles/', ArticlesList.as_view()),
     # path('snippets/<int:pk>/', views.SnippetDetail.as_view()),

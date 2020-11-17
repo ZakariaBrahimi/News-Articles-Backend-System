@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'news_articles'
+    'news_articles',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -121,11 +122,19 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-"""
-you can control how many objects per page are returned.
-"""
+
 
 REST_FRAMEWORK = {
+    
+    #you can control how many objects per page are returned.
+
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10
+    'PAGE_SIZE': 10,
+
+    #you can Set the authentication scheme
+
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+
 }
