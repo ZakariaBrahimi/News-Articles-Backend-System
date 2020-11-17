@@ -7,7 +7,4 @@ app_name = 'news_articles'
 
 urlpatterns = [
     url('articles/', ArticlesList.as_view()),
-    # path('snippets/<int:pk>/', views.SnippetDetail.as_view()),
 ]
-
-# urlpatterns = format_suffix_patterns(urlpatterns)
